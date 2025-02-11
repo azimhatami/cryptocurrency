@@ -17,30 +17,7 @@ function TableCoin({ coins }) {
         </thead>
         <tbody>
           {coins.map((coin) => {
-            return (
-              <tr key={coin.id}>
-                <td>
-                  <div>
-                    <img src={coin.image} alt={coin.name} />
-                    <span>{coin.symbol.toUpperCase()}</span>
-                  </div>
-                </td>
-                <td>{coin.name}</td>
-                <td>{coin.current_price.toLocaleString()}</td>
-                <td>{coin.price_change_percentage_24h.toFixed(2)}%</td>
-                <td>{coin.total_volume.toLocaleString()}</td>
-                <td>
-                  <img
-                    src={
-                      coin.price_change_percentage_24h > 0
-                        ? chartUp
-                        : chartDown
-                    }
-                    alt={coin.name}
-                  />
-                </td>
-              </tr>
-            );
+            return <TableRow coin={coin} key={coin.id} />;
           })}
         </tbody>
       </table>
@@ -49,3 +26,32 @@ function TableCoin({ coins }) {
 }
 
 export default TableCoin;
+
+const TableRow = ({
+  coin: {
+    image,
+    name,
+    symbol,
+    current_price,
+    total_volume,
+    price_change_percentage_24h: price_change,
+  },
+}) => {
+  return (
+    <tr>
+      <td>
+        <div>
+          <img src={image} alt={name} />
+          <span>{symbol.toUpperCase()}</span>
+        </div>
+      </td>
+      <td>{name}</td>
+      <td>{current_price.toLocaleString()}</td>
+      <td>{price_change.toFixed(2)}%</td>
+      <td>{total_volume.toLocaleString()}</td>
+      <td>
+        <img src={price_change > 0 ? chartUp : chartDown} alt={name} />
+      </td>
+    </tr>
+  );
+};
