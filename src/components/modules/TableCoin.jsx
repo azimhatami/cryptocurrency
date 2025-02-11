@@ -1,27 +1,34 @@
 import chartUp from "../../assets/chart-up.svg";
 import chartDown from "../../assets/chart-down.svg";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
-function TableCoin({ coins }) {
+function TableCoin({ coins, isLoading }) {
   console.log(coins);
   return (
-    <>
-      <table>
-        <thead>
-          <tr>
-            <th>Coin</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>24h</th>
-            <th>Total Volume</th>
-          </tr>
-        </thead>
-        <tbody>
-          {coins.map((coin) => {
-            return <TableRow coin={coin} key={coin.id} />;
-          })}
-        </tbody>
-      </table>
-    </>
+    <div>
+      {isLoading ? (
+        <div>
+          <PacmanLoader color="#76ABAE" />
+        </div>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Coin</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>24h</th>
+              <th>Total Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            {coins.map((coin) => {
+              return <TableRow coin={coin} key={coin.id} />;
+            })}
+          </tbody>
+        </table>
+      )}
+    </div>
   );
 }
 

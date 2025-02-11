@@ -5,21 +5,22 @@ import TableCoin from "../modules/TableCoin";
 
 function HomePage() {
   const [coins, setCoins] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(getCoinList());
       const json = await res.json();
       setCoins(json);
+      setIsLoading(false);
     };
-    fetch(getCoinList())
-      .then((response) => response.json())
-      .then((json) => setCoins(json));
+
+    getData();
   }, []);
 
   return (
     <>
-      <TableCoin coins={coins} />
+      <TableCoin coins={coins} isLoading={isLoading} />
     </>
   );
 }
