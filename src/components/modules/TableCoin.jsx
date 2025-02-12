@@ -1,14 +1,14 @@
 import chartUp from "../../assets/chart-up.svg";
 import chartDown from "../../assets/chart-down.svg";
-import PacmanLoader from "react-spinners/PacmanLoader";
+import { ThreeDots } from "react-loader-spinner";
 
 function TableCoin({ coins, isLoading }) {
   // console.log(coins);
   return (
-    <div className="flex items-center justify-center h-full !mt-[5rem]">
+    <div className="flex items-center justify-center h-full !mt-[4rem]">
       {isLoading ? (
-        <div>
-          <PacmanLoader color="#76ABAE" />
+        <div className="h-[30rem]">
+          <ThreeDots color="#76ABAE" />
         </div>
       ) : (
         <table className="w-[55rem] border-collapse place-self-center">
