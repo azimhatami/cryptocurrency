@@ -3,7 +3,7 @@ import chartDown from "../../assets/chart-down.svg";
 import PacmanLoader from "react-spinners/PacmanLoader";
 
 function TableCoin({ coins, isLoading }) {
-  console.log(coins);
+  // console.log(coins);
   return (
     <div className="flex items-center justify-center h-full !mt-[5rem]">
       {isLoading ? (
