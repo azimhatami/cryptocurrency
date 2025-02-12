@@ -5,15 +5,15 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 function TableCoin({ coins, isLoading }) {
   console.log(coins);
   return (
-    <div>
+    <div className="flex items-center justify-center h-full !mt-[5rem]">
       {isLoading ? (
         <div>
           <PacmanLoader color="#76ABAE" />
         </div>
       ) : (
-        <table>
-          <thead>
-            <tr>
+        <table className="w-[55rem] border-collapse place-self-center">
+          <thead className="border-b border-[#76ABAE]/70 h-10">
+            <tr className="*:text-start">
               <th>Coin</th>
               <th>Name</th>
               <th>Price</th>
@@ -21,7 +21,7 @@ function TableCoin({ coins, isLoading }) {
               <th>Total Volume</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="*:border-b-[1px] *:border-[#76ABAE]/20">
             {coins.map((coin) => {
               return <TableRow coin={coin} key={coin.id} />;
             })}
@@ -45,16 +45,20 @@ const TableRow = ({
   },
 }) => {
   return (
-    <tr>
-      <td>
-        <div>
-          <img src={image} alt={name} />
-          <span>{symbol.toUpperCase()}</span>
+    <tr className="*:h-12 first:!mt-4 *:font-medium">
+      <td className="">
+        <div className="flex items-center gap-x-3">
+          <img src={image} alt={name} className="w-6 h-6" />
+          <span className="font-semibold text-[#76ABAE]/50 cursor-pointer">
+            {symbol.toUpperCase()}
+          </span>
         </div>
       </td>
       <td>{name}</td>
       <td>{current_price.toLocaleString()}</td>
-      <td>{price_change.toFixed(2)}%</td>
+      <td className={price_change > 0 ? "text-green-400" : "text-red-400"}>
+        {price_change.toFixed(2)}%
+      </td>
       <td>{total_volume.toLocaleString()}</td>
       <td>
         <img src={price_change > 0 ? chartUp : chartDown} alt={name} />
