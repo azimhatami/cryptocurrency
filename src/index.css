@@ -20,3 +20,15 @@ body {
   padding: 0px;
   box-sizing: border-box;
 }
+
+.pagination p {
+  @apply font-semibold border border-[#76ABAE] w-6 h-6 text-center rounded-md hover:bg-[#76ABAE]/30;
+}
+
+.selected {
+  @apply bg-[#76ABAE]/40;
+}
+
+.pagination span {
+  @apply font-semibold;
+}
