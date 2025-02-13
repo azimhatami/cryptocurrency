@@ -16,7 +16,7 @@ function Pagination({ page, setPage }) {
   };
 
   return (
-    <div className="flex items-center justify-center !mt-18">
+    <div className="flex items-center justify-center">
       <div className="pagination flex items-center gap-x-4">
         <button
           className={`${page === 1 ? "disabled cursor-not-allowed" : "cursor-pointer"} bg-[#31363F]/80 w-18 

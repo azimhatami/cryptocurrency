@@ -7,7 +7,7 @@ import { ThreeDots } from "react-loader-spinner";
 function TableCoin({ coins, isLoading, setChart }) {
   // console.log(coins);
   return (
-    <div className="flex items-center justify-center h-full !mt-[4rem]">
+    <div className="flex items-center justify-center h-full">
       {isLoading ? (
         <div className="h-[30rem]">
           <ThreeDots color="#76ABAE" />

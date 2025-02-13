@@ -41,13 +41,19 @@ function Chart({ chart, setChart }) {
           <ChartComponent data={convertData(chart, type)} type={type} />
         </div>
         <div className="flex justify-between w-full" onClick={typeHandler}>
-          <button className="border border-1 border-[#76ABAE] hover:bg-[#76ABAE]/50 rounded-md w-[8rem] font-semibold">
+          <button
+            className={`${type === "prices" ? "selected" : null} border border-1 border-[#76ABAE] hover:bg-[#76ABAE]/50 rounded-md w-[8rem] font-semibold`}
+          >
             Prices
           </button>
-          <button className="border border-1 border-[#76ABAE] hover:bg-[#76ABAE]/50 rounded-md w-[8rem] font-semibold">
+          <button
+            className={`${type === "market_caps" ? "selected" : null} border border-1 border-[#76ABAE] hover:bg-[#76ABAE]/50 rounded-md w-[8rem] font-semibold`}
+          >
             Market caps
           </button>
-          <button className="border border-1 border-[#76ABAE] hover:bg-[#76ABAE]/50 rounded-md w-[8rem] font-semibold">
+          <button
+            className={`${type === "total_volumes" ? "selected" : null} border border-1 border-[#76ABAE] hover:bg-[#76ABAE]/50 rounded-md w-[8rem] font-semibold`}
+          >
             Total Volumes
           </button>
         </div>

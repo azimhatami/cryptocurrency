@@ -21,6 +21,11 @@ body {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 .pagination p {
   @apply font-semibold border border-[#76ABAE] w-6 h-6 text-center rounded-md hover:bg-[#76ABAE]/30;
 }

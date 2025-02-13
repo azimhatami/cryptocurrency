@@ -44,7 +44,7 @@ function Search({ currency, setCurrency }) {
   }, [text]);
 
   return (
-    <div className="flex items-center justify-end w-[85%] !mt-4">
+    <div className="flex items-center justify-end w-[79%] !mt-4">
       <input
         type="text"
         className="w-[20rem] h-[2.2rem] !mr-3 bg-[#31363F] text-[#eeeeee] !px-2 rounded-md outline-none font-medium border border-1 border-[#76ABAE]/60"
